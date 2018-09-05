@@ -10,6 +10,11 @@ const styles = {
   }
 };
 
+const openInTab = url => () => {
+  const win = window.open(url, "_blank");
+  win.focus();
+};
+
 export default function SideBarElements({ changeIFrame }) {
   return (
     <List>
@@ -39,6 +44,15 @@ export default function SideBarElements({ changeIFrame }) {
           />
         </ListItemIcon>
         <ListItemText primary="SickBeard" />
+      </ListItem>
+      <ListItem onClick={openInTab("http://192.168.1.123:3001")} button>
+        <ListItemIcon style={styles.listIcon}>
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/41cc6xO%2BHWL.png"
+            alt="File Manager"
+          />
+        </ListItemIcon>
+        <ListItemText primary="File Manager" />
       </ListItem>
     </List>
   );
